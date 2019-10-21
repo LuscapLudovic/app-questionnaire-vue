@@ -1,13 +1,23 @@
 <template>
   <div id="app">
-    <router-view/>
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <h1>
+        Questionnaire
+      </h1>
+      <router-view/>
+      <!--<router-link to="/about">About</router-link>-->
     </div>
   </div>
 </template>
-
+<script>
+  import Login from "@/views/Login";
+  export default {
+    name: "App",
+    components: {
+      Login
+    }
+  }
+</script>
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

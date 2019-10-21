@@ -8,7 +8,7 @@
 
                 <input type="entreprise" id="inputEntreprise" v-model="utilisateur.entreprise" class="form-control" placeholder="entreprise" required="" autofocus="">
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit" @click.once="submit">Connexion</button>
+            <button v-if="utilisateur" class="btn btn-lg btn-primary btn-block" type="submit" @click.once="submit">Connexion</button>
         </form>
     </div>
 </template>
@@ -17,7 +17,7 @@
     import Questionnaire from "@/views/Questionnaire";
 
     export default {
-        name: "home",
+        name: "login",
         props: {
             msg : String
         },
@@ -34,7 +34,13 @@
             submit() {
                 this.$router.push({name: 'questionnaire', params: {Questionnaire: "questionnaire"}});
             }
+        },
+        // mise en place portée globale information utilisateur. //////////////////
+        submit: function(){
+          this.$emit("inputData", this.utilisateur);
+          this.utilisateur = utilisateur.prenom;
         }
+        // pas encore fonctionnel ///////////////////////////////
     }
 </script>
 
